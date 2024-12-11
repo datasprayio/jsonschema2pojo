@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.7
+* Add de-duplication of classes with identical schema without using `$ref`s
+
 ## 1.2.2
 * Don't log ClassAlreadyExistsException for Enum ([#1597](https://github.com/joelittlejohn/jsonschema2pojo/pull/1597))
 * Prevent generating duplicate constructors when all properties are required; and both includeAllPropertiesConstructor and includeRequiredPropertiesConstructor are true ([#1553](https://github.com/joelittlejohn/jsonschema2pojo/pull/1553))

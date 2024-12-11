@@ -1,4 +1,7 @@
-# jsonschema2pojo [![Build Status](https://github.com/joelittlejohn/jsonschema2pojo/actions/workflows/ci.yml/badge.svg?query=branch%3Amaster)](https://github.com/joelittlejohn/jsonschema2pojo/actions/workflows/ci.yml?query=branch%3Amaster) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jsonschema2pojo/jsonschema2pojo/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.jsonschema2pojo%22)
+> [!IMPORTANT]
+> This is a fork from [joelittlejohn/jsonschema2pojo](https://github.com/joelittlejohn/jsonschema2pojo) that adds [de-duplication of identical classes](https://github.com/joelittlejohn/jsonschema2pojo/pull/1655).
+
+# jsonschema2pojo [![Build Status](https://github.com/datasprayio/jsonschema2pojo/actions/workflows/ci.yml/badge.svg?query=branch%3Amaster)](https://github.com/datasprayio/jsonschema2pojo/actions/workflows/ci.yml?query=branch%3Amaster) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.dataspray/jsonschema2pojo/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.dataspray%22)
 
 _jsonschema2pojo_ generates Java types from JSON Schema (or example JSON) and can annotate those types for data-binding with Jackson 2.x or Gson.
 
@@ -9,9 +12,9 @@ You can use jsonschema2pojo as a Maven plugin, an Ant task, a command line utili
 A very simple Maven example:
 ```xml
 <plugin>
-    <groupId>org.jsonschema2pojo</groupId>
+    <groupId>io.dataspray</groupId>
     <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
     <configuration>
         <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
         <targetPackage>com.example.types</targetPackage>
@@ -31,7 +34,7 @@ A very simple Gradle example:
 ```groovy
 plugins {
   id "java"
-  id "org.jsonschema2pojo" version "1.2.2"
+  id "io.dataspray" version "1.2.7"
 }
 
 repositories {
