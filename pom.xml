@@ -10,7 +10,7 @@
 
     <groupId>io.dataspray</groupId>
     <artifactId>jsonschema2pojo</artifactId>
-    <version>1.2.3-SNAPSHOT</version>
+    <version>1.2.4</version>
 
     <packaging>pom</packaging>
     <name>jsonschema2pojo</name>
@@ -38,7 +38,7 @@
         <url>https://github.com/datasprayio/jsonschema2pojo</url>
         <connection>scm:git:git@github.com:datasprayio/jsonschema2pojo.git</connection>
         <developerConnection>scm:git:git@github.com:datasprayio/jsonschema2pojo.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>jsonschema2pojo-1.2.4</tag>
     </scm>
 
     <licenses>
