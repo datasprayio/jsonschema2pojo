@@ -5,7 +5,7 @@
     <parent>
         <artifactId>jsonschema2pojo</artifactId>
         <groupId>io.dataspray</groupId>
-        <version>1.2.6-SNAPSHOT</version>
+        <version>1.2.7</version>
     </parent>
 
     <artifactId>jsonschema2pojo-ant</artifactId>
