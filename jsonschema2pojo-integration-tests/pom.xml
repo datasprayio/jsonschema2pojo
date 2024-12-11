@@ -4,7 +4,7 @@
 
     <parent>
         <artifactId>jsonschema2pojo</artifactId>
-        <groupId>org.jsonschema2pojo</groupId>
+        <groupId>io.dataspray</groupId>
         <version>1.2.3-SNAPSHOT</version>
     </parent>
 
@@ -101,9 +101,9 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jsonschema2pojo</groupId>
+            <groupId>io.dataspray</groupId>
             <artifactId>jsonschema2pojo-jdk-annotation</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.2-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>

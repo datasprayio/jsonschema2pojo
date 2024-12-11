@@ -8,7 +8,7 @@
         <version>9</version>
     </parent>
 
-    <groupId>org.jsonschema2pojo</groupId>
+    <groupId>io.dataspray</groupId>
     <artifactId>jsonschema2pojo</artifactId>
     <version>1.2.3-SNAPSHOT</version>
 
@@ -18,6 +18,7 @@
     <url>https://github.com/joelittlejohn/jsonschema2pojo</url>
 
     <modules>
+        <module>jsonschema2pojo-jdk-annotation</module>
         <module>jsonschema2pojo-ant</module>
         <module>jsonschema2pojo-cli</module>
         <module>jsonschema2pojo-core</module>
@@ -34,9 +35,9 @@
     </developers>
 
     <scm>
-        <url>https://github.com/joelittlejohn/jsonschema2pojo</url>
-        <connection>scm:git:git@github.com:joelittlejohn/jsonschema2pojo.git</connection>
-        <developerConnection>scm:git:git@github.com:joelittlejohn/jsonschema2pojo.git</developerConnection>
+        <url>https://github.com/datasprayio/jsonschema2pojo</url>
+        <connection>scm:git:git@github.com:datasprayio/jsonschema2pojo.git</connection>
+        <developerConnection>scm:git:git@github.com:datasprayio/jsonschema2pojo.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
@@ -46,6 +47,17 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
