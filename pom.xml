@@ -68,6 +68,7 @@
         <jackson2x.version>2.17.2</jackson2x.version>
         <jackson2x.databind.version>2.17.2</jackson2x.databind.version>
         <maven.plugin.plugin.version>3.8.1</maven.plugin.plugin.version>
+        <githubReleaseVersion>${project.version}</githubReleaseVersion>
     </properties>
 
     <reporting>
@@ -235,6 +236,29 @@
                 </configuration>
             </plugin>
             <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <!-- http://jira.codehaus.org/browse/MGPG-9 -->
@@ -255,54 +279,19 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <inherited>false</inherited>
+                <groupId>de.jutzig</groupId>
+                <artifactId>github-release-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <releaseName>${githubReleaseVersion}</releaseName>
+                    <tag>${githubReleaseVersion}</tag>
+                    <artifact><!-- Do not include default artifact --></artifact>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <dependencies>
         <dependency>
