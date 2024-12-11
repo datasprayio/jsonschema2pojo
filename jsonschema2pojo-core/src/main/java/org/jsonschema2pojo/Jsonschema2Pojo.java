@@ -90,7 +90,7 @@ public class Jsonschema2Pojo {
             throw new GenerationException("Could not create or access target directory " + config.getTargetDirectory().getAbsolutePath());
         }
     }
-    
+
     private static ContentResolver createContentResolver(GenerationConfig config) {
         if (config.getSourceType() == SourceType.YAMLSCHEMA || config.getSourceType() == SourceType.YAML) {
             return new ContentResolver(new YAMLFactory());
@@ -134,8 +134,10 @@ public class Jsonschema2Pojo {
                     mapper.getRuleFactory().getSchemaStore().clearCache();
                 }
                 mapper.generate(codeModel, getNodeName(child.toURI().toURL(), config), defaultString(packageName), child.toURI().toURL());
-            } else {
+            } else if (child.isDirectory()) {
                 generateRecursive(config, mapper, codeModel, childQualifiedName(packageName, child.getName()), Arrays.asList(child.listFiles(config.getFileFilter())));
+            } else {
+                throw new GenerationException("Source path is not a file nor directory: " + child.getAbsolutePath());
             }
         }
     }
@@ -176,7 +178,7 @@ public class Jsonschema2Pojo {
         try {
             String fileName = FilenameUtils.getName(URLDecoder.decode(filePath, StandardCharsets.UTF_8.toString()));
             String[] extensions = config.getFileExtensions() == null ? new String[] {} : config.getFileExtensions();
-            
+
             boolean extensionRemoved = false;
             for (int i = 0; i < extensions.length; i++) {
                 String extension = extensions[i];
@@ -200,5 +202,5 @@ public class Jsonschema2Pojo {
             throw new IllegalArgumentException(String.format("Unable to generate node name from URL: %s", filePath), e);
         }
     }
-    
+
 }
