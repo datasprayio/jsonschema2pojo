@@ -14,7 +14,7 @@ A very simple Maven example:
 <plugin>
     <groupId>io.dataspray</groupId>
     <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-    <version>1.2.7</version>
+    <version>1.2.8</version>
     <configuration>
         <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
         <targetPackage>com.example.types</targetPackage>
@@ -34,7 +34,7 @@ A very simple Gradle example:
 ```groovy
 plugins {
   id "java"
-  id "io.dataspray" version "1.2.7"
+  id "io.dataspray" version "1.2.8"
 }
 
 repositories {

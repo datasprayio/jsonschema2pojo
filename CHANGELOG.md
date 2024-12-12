@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.8
+* Fix Enums forced to generate outside of class when deduplicating to prevent non-deterministic location
+
 ## 1.2.7
 * Add de-duplication of classes with identical schema without using `$ref`s
 
